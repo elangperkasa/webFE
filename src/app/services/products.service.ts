@@ -25,7 +25,13 @@ export class ProductsService {
       return this.httpClient.get(`${this.apiUrl}?name_like=${name}`).pipe(
         catchError(this.handleError)
       );
-    }
+  }
+
+  getItem(data: any): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/product/${data}`).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {
